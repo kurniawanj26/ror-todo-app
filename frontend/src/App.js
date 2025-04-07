@@ -3,7 +3,7 @@ import "./App.css";
 import { useState, useEffect } from "react";
 
 // API
-import { get_todos, add_todo } from "./api/endpoints";
+import { get_todos, add_todo, delete_todo } from "./api/endpoints";
 
 // components
 import TodoList from "./components/TodoList";
@@ -24,12 +24,18 @@ function App() {
     const todo = await add_todo(todo_name);
     setTodos([todo, ...todos]);
   };
+
+  const deleteTodo = async (id) => {
+    delete_todo(id);
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
   return (
     <div className="App">
       <div className="app-container">
         <h1 className="title">To do app</h1>
         <AddTodo addTodo={addTodo} />
-        <TodoList todos={todos} />
+        <TodoList todos={todos} deleteTodo={deleteTodo} />
       </div>
     </div>
   );
