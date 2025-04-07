@@ -1,0 +1,38 @@
+import logo from "./logo.svg";
+import "./App.css";
+import { useState, useEffect } from "react";
+
+// API
+import { get_todos, add_todo } from "./api/endpoints";
+
+// components
+import TodoList from "./components/TodoList";
+import AddTodo from "./components/AddTodo";
+
+function App() {
+  const [todos, setTodos] = useState([]);
+
+  useEffect(() => {
+    const fetchTodos = async () => {
+      const todos = await get_todos();
+      setTodos(todos);
+    };
+    fetchTodos();
+  }, []);
+
+  const addTodo = async (todo_name) => {
+    const todo = await add_todo(todo_name);
+    setTodos([todo, ...todos]);
+  };
+  return (
+    <div className="App">
+      <div className="app-container">
+        <h1 className="title">To do app</h1>
+        <AddTodo addTodo={addTodo} />
+        <TodoList todos={todos} />
+      </div>
+    </div>
+  );
+}
+
+export default App;
