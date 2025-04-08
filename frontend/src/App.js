@@ -33,7 +33,8 @@ function App() {
   return (
     <div className="App">
       <div className="app-container">
-        <h1 className="title">To do app</h1>
+        <h1 className="title">TODO ✅</h1>
+        <h3 className="sub-title">🚀 Powered by Ruby on Rails + React</h3>
         <AddTodo addTodo={addTodo} />
         <TodoList todos={todos} deleteTodo={deleteTodo} />
       </div>
