@@ -1,16 +1,36 @@
-import { RiDeleteBack2Line } from "react-icons/ri";
+import { MdDelete } from "react-icons/md";
+import { ImCheckboxChecked, ImCheckboxUnchecked } from "react-icons/im";
+import { useState } from "react";
+import { update_todo } from "../api/endpoints";
+import FullDateTime from "./FullDateTime";
 
-const Todo = ({ todo_name, id, deleteTodo }) => {
-  const handleDelete = () => {
-    deleteTodo(id);
+const Todo = ({ todo_name, id, deleteTodo, completed, created_at }) => {
+  const [isChecked, setIsChecked] = useState(completed);
+
+  const handleDelete = async () => {
+    await deleteTodo(id);
+  };
+
+  const handleIsComplete = async () => {
+    update_todo(id, !isChecked);
+    setIsChecked(!isChecked);
   };
 
   return (
     <div className="todo">
       <div className="todo-container">
-        <input type="checkbox" />
-        <h3>{todo_name}</h3>
-        <RiDeleteBack2Line size="20px" onClick={handleDelete} />
+        <div onClick={handleIsComplete}>
+          {isChecked ? (
+            <ImCheckboxChecked size="20px" color="#16C47F" />
+          ) : (
+            <ImCheckboxUnchecked size="20px" color="#808080" />
+          )}
+        </div>
+        <div className="todo-content">
+          <FullDateTime created_at={created_at} />
+          <h3>{todo_name}</h3>
+        </div>
+        <MdDelete size="30px" color="#F7374F" onClick={handleDelete} />
       </div>
     </div>
   );

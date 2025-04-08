@@ -10,6 +10,8 @@ const TodoList = ({ todos, deleteTodo }) => {
             id={todo.id}
             todo_name={todo.todo_name}
             deleteTodo={deleteTodo}
+            completed={todo.completed}
+            created_at={todo.created_at}
           />
         );
       })}
