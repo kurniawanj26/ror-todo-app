@@ -2,6 +2,8 @@
 
 A full-stack TODO application built with **Ruby on Rails** as the backend API and **React** as the frontend. This project showcases CRUD functionality with persistent data storage, demonstrating how **powerful and elegant Ruby** can be when combined with modern JavaScript frameworks.
 
+![ScreenRecording2025-04-08at10 52 05-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/58a3f829-7ea8-41af-acd9-4f67a4a4bd20)
+
 ## 🔥 Features
 
 - ✅ Create, Read, Update, and Delete TODO items  
