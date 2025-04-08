@@ -20,6 +20,10 @@
   font-weight: 800;
 }
 
+.sub-title {
+  font-size: 18;
+}
+
 .todo {
   border: 1px solid black;
   min-height: 100px;
@@ -59,4 +63,9 @@
 .add-button {
   width: 20%;
   height: 100%;
+}
+
+.date-text {
+  font-size: 12px;
+  margin-bottom: 5px;
 }
