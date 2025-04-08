@@ -3,10 +3,10 @@ import { useState } from "react";
 const AddTodo = ({ addTodo }) => {
   const [input, setInput] = useState("");
 
-  const handleAdd = () => {
+  const handleAdd = async () => {
     if (input === "") return;
 
-    addTodo(input);
+    await addTodo(input);
     setInput("");
   };
 
@@ -16,6 +16,7 @@ const AddTodo = ({ addTodo }) => {
         onChange={(e) => setInput(e.target.value)}
         className="add-input"
         type="text"
+        value={input}
       />
       <button onClick={handleAdd} className="add-button">
         Add Todo
